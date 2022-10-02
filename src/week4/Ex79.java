@@ -4,7 +4,10 @@ import java.util.Scanner;
 
 public class Ex79 {
     public static void main(String[] args) {
-        NumberStatistics stats = new NumberStatistics();
+        NumberStatistics all = new NumberStatistics();
+        NumberStatistics even = new NumberStatistics();
+        NumberStatistics odd = new NumberStatistics();
+
         System.out.println("Type number: ");
         Scanner reader = new Scanner(System.in);
         int number;
@@ -13,10 +16,15 @@ public class Ex79 {
             if (number == -1) {
                 break;
             }
-            stats.addNumber(number);
+            all.addNumber(number);
+            if(number % 2 == 0){
+                even.addNumber(number);
+            } else {
+                odd.addNumber(number);
+            }
         }
-        System.out.println("Amount: " + stats.amountOfNumbers());
-        System.out.println("sum: " + stats.sum());
-        System.out.println("average: " + stats.average());
+        System.out.println("sum: " + all.sum());
+        System.out.println("sum of even: " + even.sum());
+        System.out.println("sum of odd: " + odd.sum());
     }
 }
