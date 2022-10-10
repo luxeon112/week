@@ -27,6 +27,9 @@ public class Suitcase {
         for (Thing currentThing :this.things) {
             weightCurrent += currentThing.getWeight();
         }
+        if(weightCurrent == 0) {
+            return "empty (" + weightCurrent + " kg)";
+        }
         return this.things.size() + " things (" + weightCurrent + " kg)";
     }
 }
