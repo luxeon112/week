@@ -44,4 +44,15 @@ public class Suitcase {
         }
         return weightCurrent;
     }
+
+    public Thing heaviestThing(){
+        Thing heavist = new Thing("", 0);
+        for (Thing thing : this.things) {
+            if (thing.getWeight() > heavist.getWeight()){
+                heavist = thing;
+            }
+        }
+        if(this.things.size() == 0) return null;
+        return heavist;
+    }
 }
