@@ -11,6 +11,10 @@ public class Purchase {
         this.unitPrice = unitPrice;
     }
 
+    public String getProduct() {
+        return product;
+    }
+
     public int price(){
         return this.unitPrice * this.amount;
     }
@@ -22,5 +26,27 @@ public class Purchase {
     @Override
     public String toString() {
         return this.product + ": " +this.amount;
+    }
+
+    public boolean equals(Object object) {
+        if (object == null) {
+            return false;
+        }
+
+        if (getClass() != object.getClass()) {
+            return false;
+        }
+
+        Purchase compared = (Purchase) object;
+
+        if (!this.product.equals(compared.product)) {
+            return false;
+        }
+
+        if (this.price() != compared.price()) {
+            return false;
+        }
+
+        return true;
     }
 }
